@@ -7,3 +7,9 @@ target
 /.settings
 /RUNNING_PID
 /bin/
+/.cache-main
+/.cache-tests
+/.sbtserver/
+/project/.sbtserver
+/project/.sbtserver.lock
+
