@@ -1,0 +1,31 @@
+@(message: String)
+
+@main("Welcome to Play") {
+  <div class="container">
+    <form class="col s12" action="@routes.PersonCRUD.save()" method="post">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="name" name="name" type="text">
+          <label for="name">Digite seu nome</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="user" name="user" type="text">
+          <label for="user">Escolha seu login</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" name="password" type="password">
+          <label for="password">Escolha uma senha</label>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn waves-effect waves-light" type="submit">Cadastrar
+          <i class="material-icons">send</i>
+        </button>
+      </div>
+    </form>
+  </div>
+}
