@@ -1,0 +1,64 @@
+@(books: List[Book]) 
+
+@main {
+<div class="container">
+	<h4>Meus Livros</h4>
+	<div class="row">
+		@for(book <- books) {
+		<div class="col s12 m4 l3">
+			<div class="card">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="@routes.Assets.versioned("images/book.png")">
+				</div>
+				<div class="card-content">
+					<span class="card-title activator grey-text text-darken-4">
+						@book.getName() <i class="mdi-navigation-more-vert right"></i>
+					</span>
+					<p class="center">
+						<a href="@routes.BookCRUD.toggleStatus(book.getId())" 
+						    class="tooltipped btn-flat waves-effect waves-teal"
+							data-position="top" data-delay="50"
+							data-tooltip="Marcar como lido"> <i
+							class="mdi-image-remove-red-eye small"></i>
+						</a> <a href="@routes.BookCRUD.edit(book.getId())" class="tooltipped btn-flat waves-effect waves-teal"
+							data-position="top" data-delay="50" data-tooltip="Editar dados">
+							<i class="mdi-editor-mode-edit small"></i>
+						</a> <a href="@routes.BookCRUD.delete(book.getId())"
+							class="tooltipped btn-flat waves-effect waves-teal"
+							data-position="top" data-delay="50" data-tooltip="Remover livro">
+							<i class="mdi-action-delete small"></i>
+						</a>
+					</p>
+				</div>
+				<div class="card-reveal">
+					<span class="card-title grey-text text-darken-4">@book.getName()
+						<i class="mdi-navigation-close right"></i>
+					</span>
+					<table>
+						<tbody>
+							<tr>
+								<td>Autor</td>
+								<td>@book.getAuthor()</td>
+							<tr>
+								<td>Editora</td>
+								<td>@book.getPublisher()</td>
+							</tr>
+							<tr>
+								<td>Lido</td>
+								<td>@book.getStatus()</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		}
+	</div>
+</div>
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+	<a class="btn-floating btn-large red tooltipped modal-trigger"
+		href="@routes.BookCRUD.neew()" data-position="left" data-delay="50"
+		data-tooltip="Novo livro"> <i class="large mdi-content-add"></i>
+	</a>
+</div>
+}

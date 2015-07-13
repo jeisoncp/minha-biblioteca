@@ -5,8 +5,16 @@
 # Home page
 GET     /                            controllers.Application.index()
 
-GET	  /person/new        						 controllers.PersonCRUD.neew()
-POST	/person/save        					 controllers.PersonCRUD.save()
+GET     /person/new        			 controllers.PersonCRUD.neew()
+POST	/person/save        		 controllers.PersonCRUD.save()
+POST	/person/login				 controllers.PersonCRUD.login()  
+
+GET     /book/new                    controllers.BookCRUD.neew()
+GET     /book                   	 controllers.BookCRUD.list()
+POST    /book/save                   controllers.BookCRUD.save()
+GET		/book/:id/edit				 controllers.BookCRUD.edit(id: Long)
+GET		/book/:id/delete             controllers.BookCRUD.delete(id:Long)
+GET		/book/:id/toggle             controllers.BookCRUD.toggleStatus(id:Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

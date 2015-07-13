@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 
+import play.data.validation.Constraints;
+
 @Entity
 public class Person extends Model{
 
@@ -14,13 +16,13 @@ public class Person extends Model{
 	@GeneratedValue
 	private Long id;
 	
-	@Column(nullable=false)
+	@Constraints.Required
 	private String name;
 	
-	@Column(nullable=false)
+	@Constraints.Required
 	private String user;
 	
-	@Column(nullable=false)
+	@Constraints.Required
 	private String password;
 	
 	public Long getId() {

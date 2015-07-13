@@ -1,39 +1,39 @@
-@main{
+@(book: Book)
+
+@main {
 <div class="container">
 	<div class="section no-pad-bot">
 		<div class="container">
-			<h1 class="header center grey-text darken-4-text">Criando uma
-				biblioteca</h1>
+			<h1 class="header center grey-text darken-4-text">Adicionando novo livro</h1>
 			<div class="card">
 				<div class="card-content">
-					<form class="col s12" action="@routes.PersonCRUD.save()"
+					<form class="col s12" action="@routes.BookCRUD.save()"
 						method="post">
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="name" name="name" type="text"> <label
-									for="name">Digite seu nome</label>
+								<input id="name" name="name" type="text" value="@book.getName()"> <label
+									for="name">Insira o nome do livro</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="user" name="user" type="text"> <label
-									for="user">Escolha seu login</label>
+								<input id="author" name="author" type="text" value="@book.getAuthor()"> <label
+									for="author">Insira o nome do autor</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="password" name="password" type="password"> <label
-									for="password">Escolha uma senha</label>
+								<input id="publisher" name="publisher" type="text" value="@book.getPublisher()"> <label
+									for="publisher">Insira o nome da editora</label>
 							</div>
 						</div>
 						<div class="card-action">
 							<a class="waves-effect waves-light btn white-text"
-								href="@routes.Application.index()">Voltar</a>
+								href="@routes.BookCRUD.list()">Voltar</a>
 							<div class="right">
 								<button
 									class="right-align btn waves-effect waves-light deep-orange darken-2"
-									type="submit">
-									Cadastrar <i class="mdi-content-send"></i>
+									type="submit">Adicionar <i class="mdi-content-send"></i>
 								</button>
 							</div>
 						</div>
